@@ -1,0 +1,323 @@
+/* Hace que el footer siempre se mantenga abajo */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* El contenido crece y empuja el footer hacia abajo */
+main, section {
+    flex: 1;
+}
+
+
+
+/* Paleta cálida y moderna */
+:root {
+    --bg: #faebdf;
+    --header: #f8c875;
+    --btn: #ff5c57;
+    --text: #222;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--bg);
+}
+
+/* HEADER */
+header {
+    background: var(--header);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    height: 60px;
+}
+
+/* NAV */
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--text);
+    padding: 5px 12px;
+    border-radius: 10px;
+}
+
+/* SOMBREADO EN LOS BOTONES DEL MENÚ SUPERIOR */
+nav a:hover {
+    background: #ffe9c4;       /* tono suave */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    transform: scale(1.05);
+    transition: 0.25s;
+}
+
+/* transición base para que sea suave */
+nav a {
+    transition: 0.25s;
+}
+
+
+
+nav a.active {
+    background: #fff3d8;
+}
+
+/* HERO INICIO */
+.hero {
+    padding: 50px 20px;
+    text-align: center;
+    font-size: 28px;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    background: var(--btn);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-size: 18px;
+}
+
+/* FOOTER */
+footer {
+    background: var(--header);
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+/* TARJETAS TORTA DEL DÍA */
+.lista-pasteles {
+        display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 40px 20px;
+    justify-content: center;
+    /*
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 25px;
+    */
+}
+
+.card {
+    width: 300px;
+    background: #d9d9d9;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.foto {
+    background: #c7c7c7;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn-buy {
+    background: var(--btn);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 12px;
+}
+
+/* CARRUSEL */
+.carrusel {
+    width: 100%;
+    background: #ccc;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foto-carrusel {
+    height: 180px;
+    opacity: 0.9;
+}
+
+.coti {
+    text-align: center;
+    margin: 25px 0;
+}
+
+/* CATÁLOGO */
+.catalogo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+.catalogo-foto {
+    background: #c5c2f8;
+    height: 180px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    nav a {
+        font-size: 16px;
+        margin: 0 6px;
+    }
+
+    .lista-pasteles {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* SOMBREADO EN BOTONES AL PASAR EL MOUSE */
+.btn:hover,
+.btn-buy:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: 0.25s;
+}
+
+/* Suavizar transición base */
+.btn,
+.btn-buy {
+    transition: 0.25s;
+}
+
+
+/* Tarjeta estilo "Torta del día" (como la imagen que enviaste) */
+.card-dia {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 20px 22px;
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    transition: 0.25s;
+}
+
+/* Hover completo de la tarjeta */
+.card-dia:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Badge superior: "Opción 1" */
+.card-dia-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.badge-opcion {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #7a7a7a;
+    background: #fff7f2;
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+.dot-opcion {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ffd44d; /* puntito amarillo */
+}
+
+.card-dia h3 {
+    font-size: 18px;
+    color: #1f2933;
+}
+
+/* Descripción de la torta */
+.card-dia-desc {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+/* Parte inferior: precio + botón */
+.card-dia-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.precio {
+    font-weight: 600;
+    font-size: 14px;
+    color: #111827;
+}
+
+.precio span {
+    display: inline-block;
+    margin-left: 4px;
+    font-weight: 400;
+    color: #6b7280;
+}
+
+/* Botón "Agregar pedido" tipo borde rojo redondo */
+.btn-pedido {
+    background: #ffffff;
+    color: #e14b4b;
+    border: 1.5px solid #e14b4b;
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.btn-pedido:hover {
+    background: #ffe4e1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+/* Responsive: en pantallas chicas que se apilen */
+@media (max-width: 768px) {
+    .lista-pasteles {
+        flex-direction: column;
+        align-items: center;
+    }
+}
