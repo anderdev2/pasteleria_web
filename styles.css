@@ -1,4 +1,7 @@
-/* Hace que el footer siempre se mantenga abajo */
+/* =======================================================
+   SISTEMA PARA MANTENER EL FOOTER ABAJO DE LA PÁGINA
+   ======================================================= */
+
 html, body {
     height: 100%;
 }
@@ -8,22 +11,33 @@ body {
     flex-direction: column;
 }
 
-/* El contenido crece y empuja el footer hacia abajo */
 main, section {
     flex: 1;
 }
 
+/* =======================================================
+   VARIABLES DE COLOR Y ESTÉTICA GENERAL
+   ======================================================= */
 
-
-/* Paleta cálida y moderna */
 :root {
+    --rosa-principal: #f36fa2;
+    --rosa-claro: #fbd1e6;
+    --texto-oscuro: #3b2e31;
+    --texto-gris: #6d6264;
+    --fondo-suave: #faf5f7;
+    --blanco: #ffffff;
+
+    /* valores antiguos por si los usas en otras partes */
     --bg: #faebdf;
-    --header: #f8c875;
-    --btn: #ff5c57;
-    --text: #222;
+    --header-old: #f8c875;
+    --btn-old: #ff5c57;
+    --text-old: #222;
 }
 
-/* Reset básico */
+/* =======================================================
+   RESET GENERAL
+   ======================================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -32,127 +46,285 @@ main, section {
 }
 
 body {
-    background: var(--bg);
+    background: var(--fondo-suave);
+    color: var(--texto-oscuro);
 }
 
-/* HEADER */
+/* =======================================================
+   HEADER MODERNO CON DEGRADADO + HOVER + ACTIVE
+   ======================================================= */
+
 header {
-    background: var(--header);
-    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 18px 40px;
+    background: linear-gradient(to right, #ffffff 20%, #fff4f9 60%);
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
+/* logo nuevo */
 header .logo {
     height: 60px;
 }
 
-/* NAV */
+/* navegación moderna */
+nav {
+    display: flex;
+    gap: 25px;
+}
+
 nav a {
-    margin: 0 15px;
     text-decoration: none;
-    font-size: 20px;
-    color: var(--text);
-    padding: 5px 12px;
-    border-radius: 10px;
-}
-
-/* SOMBREADO EN LOS BOTONES DEL MENÚ SUPERIOR */
-nav a:hover {
-    background: #ffe9c4;       /* tono suave */
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
-    transform: scale(1.05);
+    color: var(--texto-oscuro);
+    padding: 10px 20px;
+    border-radius: 22px;
+    font-size: 18px;
+    font-weight: 500;
     transition: 0.25s;
 }
 
-/* transición base para que sea suave */
-nav a {
-    transition: 0.25s;
-}
-
-
-
+/* activo */
 nav a.active {
-    background: #fff3d8;
+    background: var(--rosa-principal);
+    color: var(--blanco);
+    transform: scale(1.07);
+    box-shadow: 0 6px 15px rgba(243, 111, 162, 0.5);
 }
 
-/* HERO INICIO */
+/* hover */
+nav a:hover {
+    background: var(--rosa-claro);
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(243, 111, 162, 0.25);
+}
+
+/* =======================================================
+   HERO (BANNER PRINCIPAL CON ZOOM)
+   ======================================================= */
+
 .hero {
-    padding: 50px 20px;
-    text-align: center;
-    font-size: 28px;
+    position: relative;
+    height: 420px;
+    border-radius: 18px;
+    overflow: hidden;
+    margin: 30px;
+    text-align: left;
 }
 
+/* imagen del hero */
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(80%);
+    transition: 0.5s ease;
+}
+
+/* zoom al pasar mouse */
+.hero:hover img {
+    transform: scale(1.1);
+    filter: brightness(65%);
+}
+
+.hero-content {
+    position: absolute;
+    top: 22%;
+    left: 6%;
+    color: var(--blanco);
+    max-width: 550px;
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+/* botones hero */
 .hero-buttons {
     margin-top: 30px;
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    gap: 18px;
 }
 
-.btn {
-    background: var(--btn);
+.btn-rosa {
+    background: var(--rosa-principal);
     color: white;
-    padding: 12px 25px;
-    border-radius: 12px;
-    font-size: 18px;
+    padding: 12px 24px;
+    border-radius: 18px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
-/* FOOTER */
-footer {
-    background: var(--header);
-    padding: 20px;
+.btn-rosa:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 20px rgba(243, 111, 162, 0.5);
+}
+
+.btn-white {
+    background: white;
+    color: var(--texto-oscuro);
+    padding: 12px 24px;
+    border-radius: 18px;
+    text-decoration: none;
+    border: 1px solid #eee;
+    transition: 0.3s;
+}
+
+.btn-white:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* =======================================================
+   SERVICIOS (CARDS)
+   ======================================================= */
+
+.servicios {
+    text-align: center;
+    margin-top: 70px;
+    padding: 0 20px 60px 20px;
+}
+
+.servicios h2 {
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.servicios p {
+    color: var(--texto-gris);
+    margin-top: 10px;
+}
+
+.servicios-grid {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 26px;
     margin-top: 40px;
 }
 
-/* TARJETAS TORTA DEL DÍA */
+.card-serv {
+    background: white;
+    padding: 26px;
+    width: 250px;
+    border-radius: 18px;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: 0.3s ease;
+}
+
+.card-serv:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.icon-serv {
+    width: 55px;
+    height: 55px;
+    background: #ffe0ef;
+    color: var(--rosa-principal);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+/* =======================================================
+   TARJETAS TORTA DEL DÍA (ESTILO NUEVO)
+   ======================================================= */
+
 .lista-pasteles {
-        display: flex;
+    display: flex;
     flex-wrap: wrap;
     gap: 24px;
     padding: 40px 20px;
     justify-content: center;
-    /*
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    padding: 25px;
-    */
 }
 
-.card {
-    width: 300px;
-    background: #d9d9d9;
-    padding: 15px;
-    border-radius: 10px;
+.card-dia {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 20px 22px;
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: 0.25s;
 }
 
-.foto {
-    background: #c7c7c7;
-    height: 180px;
+.card-dia:hover {
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+    transform: translateY(-3px);
+}
+
+.badge-opcion {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    background: #fff7f2;
+    padding: 6px 12px;
+    border-radius: 999px;
+    color: #7a7a7a;
+}
+
+.dot-opcion {
+    width: 8px;
+    height: 8px;
+    background: #ffd44d;
+    border-radius: 50%;
+}
+
+.card-dia h3 {
+    font-size: 18px;
+    color: #1f2933;
+}
+
+.card-dia-desc {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.4;
+}
+
+.card-dia-footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
-.price-row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+.btn-pedido {
+    background: white;
+    color: #e14b4b;
+    border: 1.5px solid #e14b4b;
+    padding: 8px 18px;
+    border-radius: 999px;
+    transition: 0.25s;
 }
 
-.btn-buy {
-    background: var(--btn);
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 12px;
+.btn-pedido:hover {
+    background: #ffe4e1;
+    transform: scale(1.06);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
-/* CARRUSEL */
+/* =======================================================
+   CARRUSEL TORTA PERSONALIZADA
+   ======================================================= */
+
 .carrusel {
     width: 100%;
     background: #ccc;
@@ -165,14 +337,23 @@ footer {
 .foto-carrusel {
     height: 180px;
     opacity: 0.9;
+    transition: 0.35s;
 }
 
-.coti {
+.carrusel:hover .foto-carrusel {
+    transform: scale(1.09);
+}
+
+/* =======================================================
+   CATÁLOGO MODERNO
+   ======================================================= */
+
+.titulo {
     text-align: center;
-    margin: 25px 0;
+    margin-top: 30px;
+    font-size: 32px;
 }
 
-/* CATÁLOGO */
 .catalogo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -181,143 +362,181 @@ footer {
 }
 
 .catalogo-foto {
-    background: #c5c2f8;
+    width: 100%;
     height: 180px;
+    object-fit: cover;
     border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: #c5c2f8;
+    transition: 0.3s;
 }
 
-/* RESPONSIVE */
+.catalogo-foto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* =======================================================
+   FOOTER
+   ======================================================= */
+
+footer {
+    background: #f7d7e6;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+/* =======================================================
+   RESPONSIVE
+   ======================================================= */
+
 @media (max-width: 768px) {
     nav a {
         font-size: 16px;
-        margin: 0 6px;
+        padding: 8px 14px;
     }
 
-    .lista-pasteles {
+    .hero {
+        height: 320px;
+        margin: 15px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .lista-pasteles,
+    .servicios-grid {
         flex-direction: column;
         align-items: center;
     }
 }
 
-/* SOMBREADO EN BOTONES AL PASAR EL MOUSE */
-.btn:hover,
-.btn-buy:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    transition: 0.25s;
-}
-
-/* Suavizar transición base */
-.btn,
-.btn-buy {
-    transition: 0.25s;
-}
-
-
-/* Tarjeta estilo "Torta del día" (como la imagen que enviaste) */
-.card-dia {
-    background: #ffffff;
+.cta-gradient {
+    margin: 40px 30px 60px 30px;
+    padding: 40px 20px;
     border-radius: 24px;
-    padding: 20px 22px;
-    max-width: 260px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-    transition: 0.25s;
+    background: linear-gradient(135deg, #f54a8c, #e98e5d, #f7d06de8);
+    text-align: center;
+    color: var(--blanco);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
-/* Hover completo de la tarjeta */
-.card-dia:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-    transform: translateY(-2px);
-}
+/* =======================================================
+   FOOTER PROFESIONAL COMO EL DE TU EJEMPLO
+   ======================================================= */
 
-/* Badge superior: "Opción 1" */
-.card-dia-header {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.badge-opcion {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    color: #7a7a7a;
-    background: #fff7f2;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.dot-opcion {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #ffd44d; /* puntito amarillo */
-}
-
-.card-dia h3 {
-    font-size: 18px;
-    color: #1f2933;
-}
-
-/* Descripción de la torta */
-.card-dia-desc {
-    font-size: 14px;
-    color: #4b5563;
-    line-height: 1.5;
-}
-
-/* Parte inferior: precio + botón */
-.card-dia-footer {
+.footer {
+    width: 100%;
+    padding: 30px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    background: var(--blanco);
+    border-top: 1px solid #e9e4e7;
 }
 
-.precio {
-    font-weight: 600;
+/* Logo + texto */
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.footer-logo h3 {
+    color: var(--texto-oscuro);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.footer-left p {
     font-size: 14px;
-    color: #111827;
+    color: #6e6a6b;
 }
 
-.precio span {
-    display: inline-block;
-    margin-left: 4px;
-    font-weight: 400;
-    color: #6b7280;
+/* Redes sociales */
+.footer-center {
+    text-align: center;
 }
 
-/* Botón "Agregar pedido" tipo borde rojo redondo */
-.btn-pedido {
-    background: #ffffff;
-    color: #e14b4b;
-    border: 1.5px solid #e14b4b;
-    border-radius: 999px;
-    padding: 8px 18px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
+.footer-center h4 {
+    margin-bottom: 10px;
+    color: #473f40;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+/* Icono individual */
+.social-icon {
+    width: 42px;
+    height: 42px;
+    background: #f5f0f2;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.social-icon img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) saturate(0%);
     transition: 0.25s;
 }
 
-.btn-pedido:hover {
-    background: #ffe4e1;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    transform: scale(1.05);
+/* HOVER: cambia a rosa */
+.social-icon:hover {
+    background: var(--rosa-principal);
+    transform: scale(1.12);
+    box-shadow: 0 4px 15px rgba(243, 111, 162, 0.4);
 }
 
-/* Responsive: en pantallas chicas que se apilen */
+.social-icon:hover img {
+    filter: brightness(1000%);
+}
+
+/* Columna derecha vacía solo para orden visual */
+.footer-right {
+    width: 50px;
+}
+
+/* Línea inferior */
+.footer-bottom {
+    text-align: center;
+    padding: 12px 0;
+    font-size: 14px;
+    color: #766d6f;
+    border-top: 1px solid #e9e4e7;
+}
+
+/* ============================ RESPONSIVE ============================ */
 @media (max-width: 768px) {
-    .lista-pasteles {
+    .footer {
         flex-direction: column;
-        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-right {
+        display: none;
     }
 }

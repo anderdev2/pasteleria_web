@@ -15,40 +15,117 @@
 
     <!-- HEADER -->
     <header>
-        <img src="img/logo.png" class="logo" alt="Logo pastelería">
+        <div>
+            <img src="img/logo.png" class="logo" alt="Logo pastelería">
+            <h2>CANDY fondant &amp; cakes</h2>
+        </div>
+
         <nav>
             <a class="active" href="index.html">Inicio</a>
-            <a href="torta_del_dia.html">Torta del Día</a>
             <a href="torta_personalizada.html">Torta Personalizada</a>
+            <a href="torta_del_dia.html">Torta del Día</a>
             <a href="catalogo.html">Catálogo</a>
         </nav>
     </header>
 
-    <!-- HERO INICIO -->
-    <section class="hero">
-        <h1>Endulza tu día con nuestra Torta del Día o una torta personalizada para tu evento.</h1>
+    <main>
+        <!-- HERO INICIO -->
+        <section class="hero">
+            <!-- imagen de fondo del banner -->
+            <img src="img/banner_1.jpg" alt="torta">
 
-        <div class="hero-buttons">
-            <a class="btn" href="torta_del_dia.html">Ver Torta del Día</a>
-            <a class="btn" href="torta_personalizada.html">Cotizar Torta</a>
-        </div>
-    </section>
+            <!-- contenido sobre la imagen -->
+            <div class="hero-content">
+                <h1 class="hero-title">Candy<br>Pastelería</h1>
+                <p class="hero-subtitle">
+                    Creamos tortas personalizadas para tus momentos especiales.
+                    Cada pastel es una obra de arte hecha con amor y dedicación.
+                </p>
 
-    <!-- FOOTER -->
-    <footer>
-        <div>
-            <h4>CANDY</h4>
-            <p>fondant y cakes</p>
+                <div class="hero-buttons">
+                    <a class="btn-rosa" href="torta_personalizada.html">Pedir Torta Personalizada</a>
+                    <a class="btn-white" href="torta_del_dia.html">Torta del dia</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUESTROS SERVICIOS -->
+        <section class="servicios">
+            <h2>Nuestros Servicios</h2>
+            <p>Ofrecemos una variedad de opciones para hacer realidad tus sueños más dulces</p>
+
+            <div class="servicios-grid">
+
+                <div class="card-serv">
+                    <div class="icon-serv">✨</div>
+                    <h3>Tortas Personalizadas</h3>
+                    <p>Diseños únicos para cada ocasión especial.</p>
+                </div>
+
+                <div class="card-serv">
+                    <div class="icon-serv">💬</div>
+                    <h3>Asesoría en Línea</h3>
+                    <p>Chatea con nosotros para crear tu torta ideal.</p>
+                </div>
+
+                <div class="card-serv">
+                    <div class="icon-serv">📅</div>
+                    <h3>Torta del Día</h3>
+                    <p>Opciones deliciosas listas para llevar.</p>
+                </div>
+
+                <div class="card-serv">
+                    <div class="icon-serv">📖</div>
+                    <h3>Catálogo Completo</h3>
+                    <p>Explora nuestros trabajos anteriores.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA GRADIENTE HACIA TORTA PERSONALIZADA -->
+        <div class="cta-gradient">
+            <h2>¿Listo para crear tu torta perfecta?</h2>
+            <p>Nuestro chatbot te ayudará a diseñar la torta ideal para tu evento especial.</p>
+
+            <a href="torta_personalizada.html"
+               class="btn-white"
+               style="background:#ffe3b3; padding:12px 28px; border-radius:14px; font-weight:600; display:inline-block; margin-top:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+                Comenzar Ahora
+            </a>
         </div>
-        <div>
-            <h4>Redes Sociales</h4>
-            <p>@candycakes</p>
+    </main>
+
+    <footer class="footer">
+    
+        <!-- columna izquierda: logo + descripción -->
+        <div class="footer-left">
+            <div class="footer-logo">
+                <img src="img/logo.png" alt="logo">
+                <h3>CANDY fondant &amp; cakes</h3>
+            </div>
+            <p>Creando momentos dulces e inolvidables</p>
         </div>
-        <div>
-            <h4>Contacto</h4>
-            <p>+56 9 1234 5678</p>
+
+        <!-- columna central: redes sociales -->
+        <div class="footer-center">
+            <h4>Síguenos</h4>
+
+            <div class="footer-icons">
+                <a href="#" class="social-icon"><img src="img/icon_facebook.png"></a>
+                <a href="#" class="social-icon"><img src="img/icon_instagram.png"></a>
+                <a href="#" class="social-icon"><img src="img/icon_whatsapp.png"></a>
+            </div>
         </div>
+
+        <!-- columna vacía derecha (para alineación, como en tu ejemplo) -->
+        <div class="footer-right"></div>
     </footer>
+
+    <div class="footer-bottom">
+        © 2025 CANDY fondant &amp; cakes. Todos los derechos reservados.
+    </div>
+
 
 </body>
 </html>
